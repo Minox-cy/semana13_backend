@@ -10,12 +10,17 @@ if ($result) {
     while ($row = $result->fetch_assoc()) {
         $usuarios[] = $row;
     }
-}
 
-echo json_encode([
-    "success" => true,
-    "data" => $usuarios
-]);
+    echo json_encode([
+        "success" => true,
+        "data" => $usuarios
+    ]);
+} else {
+    echo json_encode([
+        "success" => false,
+        "message" => "Error en la consulta: " . $conn->error
+    ]);
+}
 
 $conn->close();
 ?>
