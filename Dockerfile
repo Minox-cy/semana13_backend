@@ -5,7 +5,6 @@ RUN a2dismod mpm_event || true \
     && a2dismod mpm_prefork || true \
     && a2enmod mpm_prefork \
     && docker-php-ext-install mysqli pdo pdo_mysql
-
 COPY . /var/www/html/
 
 EXPOSE 80
